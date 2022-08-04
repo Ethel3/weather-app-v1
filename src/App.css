@@ -1,6 +1,6 @@
 .App{
   width: 100vw;
-  height: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,6 +15,7 @@
   display: flex;
   flex-direction: column;
   padding: 2rem;
+  justify-content: space-around;
 }
 .weather_location{
   font-size: 2rem;
@@ -23,4 +24,22 @@
 .weather_degrees{
   font-size: 2rem;
   font-weight: 500;
+}
+.weather_description{
+  display: flex;
+  align-items: center;
+}
+.weather_description_head{
+  display: flex;
+  align-items: center;
+}
+.weather_icon{
+  font-size: 2rem;
+  margin-right: 0.4rem;
+}
+.weather_description *h3{
+  font-size: 1.4rem;
+  font-weight: normal;
+  margin-right: 1rem;
+  margin-bottom: 0.7rem;
 }
