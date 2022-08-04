@@ -48,3 +48,11 @@
   font-weight: normal;
   color: rgb(222, 211,211);
 }
+.weather_country{
+  height: 100%;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  margin-left: 1rem;
+}
