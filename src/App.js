@@ -6,6 +6,8 @@ import Input from "./components/Input";
 function App() {
 
   const [degrees, setDegrees] = useState(null)
+  const [location, setLocation] = useState("")
+  const [description, setDescription] = useState("")
   const API_KEY = "7dd052a7ba40dd6d44a1c1eda148339c";
 
   const fetchData = async () => {
