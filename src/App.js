@@ -20,6 +20,8 @@ function App() {
             <h3>Humidity: 82%</h3>
             <h3>Wind speed: 5.66 m/s</h3>
           </div>
+          <h3>JP</h3>
+          <h3>4/05/2022, 4:05:56PM</h3>
         </div>
       </div>
     </div>
