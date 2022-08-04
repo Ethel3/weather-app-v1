@@ -43,3 +43,8 @@
   margin-right: 1rem;
   margin-bottom: 0.7rem;
 }
+.weather_date{
+  font-size: 1rem;
+  font-weight: normal;
+  color: rgb(222, 211,211);
+}
