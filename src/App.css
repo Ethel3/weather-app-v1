@@ -14,4 +14,13 @@
   border-radius: 30px;
   display: flex;
   flex-direction: column;
+  padding: 2rem;
+}
+.weather_location{
+  font-size: 2rem;
+  font-weight: 500;
+}
+.weather_degrees{
+  font-size: 2rem;
+  font-weight: 500;
 }
