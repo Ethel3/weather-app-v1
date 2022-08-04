@@ -9,3 +9,20 @@
     background-color: rgba(0, 0, 0, 0.6); 
     margin-top: 1rem;
 }
+.input_value{
+    outline: none;
+    border: none;
+    color: rgba(227, 216, 216);
+    background-color: transparent;
+    font-size: 1rem;
+    width: 28rem;
+    margin-right: 1rem;
+}
+.input_icon{
+    width: 3rem;
+    margin-right: 1rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
