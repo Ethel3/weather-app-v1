@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <div className="weather">
         <Input />
-        <div >
+        <div>
           <h3 className="weather_location">Weather in London</h3>
         </div>
 
@@ -20,8 +20,11 @@ function App() {
             <h3>Humidity: 82%</h3>
             <h3>Wind speed: 5.66 m/s</h3>
           </div>
-          <h3>JP</h3>
-          <h3>4/05/2022, 4:05:56 PM</h3>
+
+          <div className="weather_country">
+            <h3>JP</h3>
+            <h3 className="weather_date">4/05/2022, 4:05:56 PM</h3>
+          </div>
         </div>
       </div>
     </div>
