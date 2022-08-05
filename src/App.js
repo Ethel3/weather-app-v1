@@ -8,11 +8,21 @@ function App() {
   const [degrees, setDegrees] = useState(null)
   const [location, setLocation] = useState("")
   const [description, setDescription] = useState("")
+  const [icon, setIcon] = useState("")
+  const [Humidity, setHumidity] = useState(null)
+  const [wind, setWind] = useState(null)
+  const [country, setCountry] = useState("")
   const API_KEY = "7dd052a7ba40dd6d44a1c1eda148339c";
 
   const fetchData = async () => {
     const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=tokyo&appid=${API_KEY}&units=metric`)
     const data = await res.data
+    
+    setDegrees (data.main.temp)
+    setLocation(data.name)
+    setDescription(data.weather[0].description)
+    setIcon(data.weather[0].icon)
+    setHumidity(data.main.humidity)
 
     console.log(data)
   }
