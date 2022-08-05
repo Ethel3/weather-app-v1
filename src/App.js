@@ -7,15 +7,18 @@ function App() {
 
   const [degrees, setDegrees] = useState(null)
   const [location, setLocation] = useState("")
+  const [userlocation, setuserLocation] = useState("")
   const [description, setDescription] = useState("")
   const [icon, setIcon] = useState("")
   const [humidity, setHumidity] = useState(null)
   const [wind, setWind] = useState(null)
   const [country, setCountry] = useState("")
+  const [dataFetched, setDataFetched] = useState(false)
   const API_KEY = "7dd052a7ba40dd6d44a1c1eda148339c";
 
-  const fetchData = async () => {
-    const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=london&appid=${API_KEY}&units=metric`)
+  const fetchData = async (e) => {
+    e.preventDefault()
+    const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${userlocation}&appid=${API_KEY}&units=metric`)
     const data = await res.data
     
     setDegrees (data.main.temp)
@@ -25,16 +28,34 @@ function App() {
     setHumidity(data.main.humidity)
     setWind(data.wind.speed)
     setCountry(data.sys.country)
+    setDataFetched(true)
 
-    console.log(data)
+  }
+  const defaultDataFetched = async () =>{
+    if(!dataFetched){
+    const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=accra&appid=${API_KEY}&units=metric`)
+    const data = await res.data
+    
+    setDegrees (data.main.temp)
+    setLocation(data.name)
+    setDescription(data.weather[0].description)
+    setIcon(data.weather[0].icon)
+    setHumidity(data.main.humidity)
+    setWind(data.wind.speed)
+    setCountry(data.sys.country)
+    }
+    
   }
 useEffect(() =>{
-fetchData()
+defaultDataFetched()
 }, [])
   return (
     <div className="App">
       <div className="weather">
-        <Input />
+        <Input
+        text= {(e) => setuserLocation(e.target.value)} 
+        submit = {fetchData}
+        />
         <div className="weather_display">
           <h3 className="weather_location">Weather in {location}</h3>
         </div>
