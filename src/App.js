@@ -14,11 +14,13 @@ function App() {
   const [wind, setWind] = useState(null)
   const [country, setCountry] = useState("")
   const [dataFetched, setDataFetched] = useState(false)
-  const API_KEY = "7dd052a7ba40dd6d44a1c1eda148339c";
+
+  
 
   const fetchData = async (e) => {
     e.preventDefault()
-    const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${userlocation}&appid=${API_KEY}&units=metric`)
+    try{
+    const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${userlocation}&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
     const data = await res.data
     
     setDegrees (data.main.temp)
@@ -29,11 +31,16 @@ function App() {
     setWind(data.wind.speed)
     setCountry(data.sys.country)
     setDataFetched(true)
+  }catch(err){
+  console.log(err)
+  alert("Please enter valid location")
+  }
 
   }
+  
   const defaultDataFetched = async () =>{
     if(!dataFetched){
-    const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=accra&appid=${API_KEY}&units=metric`)
+    const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=accra&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
     const data = await res.data
     
     setDegrees (data.main.temp)
@@ -55,6 +62,7 @@ defaultDataFetched()
         <Input
         text= {(e) => setuserLocation(e.target.value)} 
         submit = {fetchData}
+        func = {fetchData}
         />
         <div className="weather_display">
           <h3 className="weather_location">Weather in {location}</h3>
