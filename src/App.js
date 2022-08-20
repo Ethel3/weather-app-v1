@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import "./App.css";
 import Input from "./components/Input";
-
+import moment from "moment";
 function App() {
 
   const [degrees, setDegrees] = useState(null)
@@ -13,6 +13,7 @@ function App() {
   const [humidity, setHumidity] = useState(null)
   const [wind, setWind] = useState(null)
   const [country, setCountry] = useState("")
+  const [zone, setZone] = useState("")
   const [dataFetched, setDataFetched] = useState(false)
 
   
@@ -80,10 +81,11 @@ defaultDataFetched()
             <h3>Humidity:{humidity}%</h3>
             <h3>Wind speed: {wind} m/s</h3>
           </div>
+          
 
           <div className="weather_country">
             <h3>{country}</h3>
-            <h3 className="weather_date">8/04/2022, 10:19:56 PM</h3>
+            <h3 className="weather_date">{moment('timestamp').format("MM DD YYYY")}</h3>
           </div>
         </div>
       </div>
