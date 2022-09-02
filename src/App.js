@@ -18,6 +18,8 @@ function App() {
 
   
 
+  const date = moment().format("dddd, MMMM Do YYYY, h:mm a")
+
   const fetchData = async (e) => {
     e.preventDefault()
     try{
@@ -85,7 +87,7 @@ defaultDataFetched()
 
           <div className="weather_country">
             <h3>{country}</h3>
-            <h3 className="weather_date">{moment('timestamp').format("MM DD YYYY")}</h3>
+            <h3 className="weather_date">{date}</h3>
           </div>
         </div>
       </div>
